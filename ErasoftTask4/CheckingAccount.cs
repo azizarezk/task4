@@ -8,14 +8,15 @@ namespace ErasoftTask4;
 
      class CheckingAccount : Account
     {
-        public CheckingAccount(string name = "Checking Account", double balance=0.0, double fee=1.5) 
+    public double Fee = 1.5;
+
+    public CheckingAccount(string name = "Checking Account", double balance=0.0) 
             : base( name, balance)
         {
-            Fee = fee;
+            
         }
 
-        public double Fee { get; set; }
-
+    
         public override bool Withdraw(double amount) => base.Withdraw(amount + (amount * Fee));
 
         public override string ToString()

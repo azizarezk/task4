@@ -8,15 +8,15 @@ namespace ErasoftTask4;
 
      class SavingAccount :Account
     {
-        public SavingAccount(string name = "Saveing Account", double balance=0.0, double fee=0.0) 
+        public SavingAccount(string name = "Saveing Account", double balance=0.0, double interestrate = 0.0) 
             : base( name, balance)
         {
-            Fee = fee;
+        InterestRate = interestrate;
         }
 
-        public double Fee { get; set; }
+        public double InterestRate { get; set; }
 
-        public override bool Withdraw(double amount) => base.Withdraw(amount + (amount * Fee));
+        public override bool Withdraw(double amount) => base.Withdraw(amount + (amount * (InterestRate/100)));
 
         public override string ToString()
         {
